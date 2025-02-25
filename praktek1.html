@@ -6,65 +6,92 @@
     <title>Portofolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffc0cb;
             text-align: center;
+            color: #333;
         }
         .container {
             width: 80%;
             margin: auto;
-            padding: 20px;
+            padding: 40px;
             background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 50px;
         }
         img {
             width: 150px;
             border-radius: 50%;
             margin-top: 20px;
         }
-        h1, h2 {
-            color: #333;
+        h1 {
+            font-size: 2em;
+            margin: 10px 0;
         }
         p {
-            color: #666;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
         }
         .projects {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 20px;
         }
         .project {
             width: 300px;
-            margin: 10px;
-            padding: 15px;
+            padding: 20px;
             background: #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+        }
+        .contact {
+            margin-top: 30px;
+        }
+        .contact a {
+            text-decoration: none;
+            color: white;
+            background: #ff69b4;
+            padding: 10px 20px;
             border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .contact a:hover {
+            background: #ff1493;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="profile.jpg" alt="Foto Profil">
+        
         <h1>Curriculum Vitae</h1>
         <p>Nama: Zakiatul Balqis Mawaddah Azzahra</p>
-        <p>Nim: F1G123056 </p>
+        <p>Nim: F1G123056</p>
         <p>Prodi: Ilmu Komputer</p>
-        
         <h2>Proyek Saya</h2>
         <div class="projects">
             <div class="project">
-                <h3>Proyek 1</h3>
-                <p>Sistem Pemesanan Galon</p>
+                <h3>Sistem Pemesanan Galon</h3>
+                <p>Membuat sebuah sistem informasi untuk mempermudah manajemen pemesanan galon</p>
             </div>
             <div class="project">
-                <h3>Proyek 2</h3>
-                <p>Web Portfolio</p>    
+                <h3>Sistem Booking MUA</h3>
+                <p>Membuat Sistem informasi untuk mempermudah melakukan booking pada MUA</p>
             </div>
+        
+        </div>
+        
+        <div class="contact">
+            <h2>Hubungi Saya</h2>
+            <a href="mailto:emailanda@example.com">Email Saya</a>
         </div>
     </div>
 </body>
