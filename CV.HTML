@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Mariana Napolitani</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fbeff2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .cv-container {
+            width: 60%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 10px solid #f7d4d7;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: #922b3e;
+            background: #f7d4d7;
+            padding: 20px;
+            text-transform: uppercase;
+            border-bottom: 5px solid #922b3e;
+        }
+
+        /* Styling untuk profil */
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Membuat gambar bulat */
+            object-fit: cover;
+            border: 3px solid #922b3e;
+        }
+
+        .profile-info {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f9e1e5;
+            border-radius: 10px;
+            border-left: 5px solid #922b3e;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: #922b3e;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .content p, .content ul {
+            margin: 10px 0;
+        }
+
+        .content ul {
+            padding-left: 20px;
+        }
+
+        .upload-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .upload-container button {
+            padding: 10px 15px;
+            background-color: #922b3e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-container button:hover {
+            background-color: #7a2231;
+        }
+
+        /* Menambahkan gambar kupu-kupu */
+        .decorative-butterfly {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 150px;
+            height: auto;
+            opacity: 0.9;
+            z-index: 10;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="header">Zakiatul Balqis - Web Developer</div>
+        
+        <!-- Bagian profil + data pribadi -->
+        <div class="profile">
+            <input type="file" id="upload" accept="image/*" hidden>
+            <img id="profile-pic" src="default-profile.png" alt="Foto Profil">
+            
+            <div class="profile-info">
+                <p><strong>Nama:</strong> Zakiatul Balqis Mawaddah Azzahra</p>
+                <p><strong>Email:</strong> Zbalqis34@gmail.com</p>
+                <p><strong>Alamat:</strong> jln. pattimura No.36</p>
+                <p><strong>Telepon:</strong> 085240499429</p>
+                <p><strong>Profil:</strong> Saya sudah pengalaman 2 tahun bekerja sebagai web developer profesional.</p>
+            </div>
+        </div>
+
+        <div class="upload-container">
+            <button onclick="document.getElementById('upload').click()">Unggah Foto</button>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Proyek</div>
+            <div class="content">
+                <p><strong>2017 - Sekarang:</strong> Perusahaan Wardiere</p>
+                <p><strong>2016 - 2017:</strong> Dosen Universitas Larana</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Pendidikan</div>
+            <div class="content">
+                <p><strong>2021 - 2023:</strong> SMAN 4 KENDARI</p>
+                <p><strong> - 2021:</strong> SMPN 9 KENDARI</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Kemampuan</div>
+            <div class="content">
+                <ul>
+                    <li>Desain Web</li>
+                    <li>Front End Coding</li>
+                    <li>Mampu bekerja dalam tim</li>
+                    <li>Aktif bahasa Indonesia dan Inggris</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Gambar kupu-kupu -->
+        <img class="decorative-butterfly" src="butterfly.jpg" alt="Butterfly">
+    </div>
+
+    <script>
+        document.getElementById("upload").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("profile-pic").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
