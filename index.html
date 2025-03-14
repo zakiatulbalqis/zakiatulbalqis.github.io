@@ -197,9 +197,6 @@
             color: white !important;
         }
         
-        v
-        
-
 
     </style>
 </head>
@@ -324,9 +321,10 @@
         }
 
         const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('change', function() {
-    document.body.classList.toggle('dark-mode');
-});
+        darkModeToggle.addEventListener('change', function() {
+        document.body.classList.toggle('dark-mode');
+        });
+
         function downloadCV() {
         const link = document.createElement('a');
         link.href = 'cv_zakiatul_balqis.pdf'; // Ganti dengan path yang benar
@@ -335,10 +333,8 @@ darkModeToggle.addEventListener('change', function() {
         link.click();
         document.body.removeChild(link);
        
-
     }
-    
-        
+           
     </script>
 
 </body>
