@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script> <!-- script untuk convert di pdfnya -->
     <title>CV Zakiatul Balqis</title>
     <style>
         body {
@@ -17,7 +18,9 @@
         }
 
         .cv-container {
-            width: 60%;
+            width: 92%;
+            max-width: 800px;
+            align-items: center;
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -50,10 +53,11 @@
         }
 
         .profile img {
-            width: 120px;
+            width: 120px; 
             height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
+            aspect-ratio: 1 / 1; 
+            object-fit: cover; 
+            border-radius: 50%; 
             border: 3px solid #922b3e;
         }
 
@@ -118,13 +122,13 @@
         }
 
         .contact-form input, .contact-form textarea, .contact-form button {
-            width: calc(100% - 10px); /* Mengurangi ukuran agar tidak melewati batas */
-            max-width: 100%; /* Pastikan elemen tidak melebihi container */
+            width: calc(100% - 10px); 
+            max-width: 100%; 
             padding: 10px;
             margin-top: 10px;
             border: 1px solid #922b3e;
             border-radius: 5px;
-            box-sizing: border-box; /* Supaya padding tidak menambah ukuran */
+            box-sizing: border-box; 
         }
         
 
@@ -160,43 +164,86 @@
         }
        
         .dark-mode .contact-form {
-            background: #555; /* Warna latar belakang lebih gelap */
-            border-left: 5px solid #777; /* Sesuai tema dark mode */
+            background: #555; 
+            border-left: 5px solid #777; 
         }
         
         .dark-mode .contact-form input, 
         .dark-mode .contact-form textarea, 
         .dark-mode .contact-form button {
-            background-color: #666; /* Latar input lebih gelap */
-            color: white; /* Warna teks putih */
-            border: 1px solid #888; /* Border lebih soft */
+            background-color: #666; 
+            color: white; 
+            border: 1px solid #888; 
         }
         
         .dark-mode .contact-form button {
-            background-color: #777; /* Warna tombol lebih gelap */
+            background-color: #7a2231;
         }
         
         .dark-mode .contact-form button:hover {
-            background-color: #999; /* Warna tombol saat hover */
+            background-color: #999; 
         }
         
         .dark-mode .contact-form input,
         .dark-mode .contact-form textarea {
-        background-color: #666; /* Warna latar lebih gelap */
-        color: white; /* Warna teks putih */
-        border: 1px solid #888; /* Border lebih soft */
+        background-color: #666; 
+        color: white; 
+        border: 1px solid #888; 
         }
 
         .dark-mode .contact-form input::placeholder,
         .dark-mode .contact-form textarea::placeholder {
-        color: #ccc; /* Warna placeholder lebih terang */
+        color: #ccc; 
         }
 
         body.dark-mode .card-header {
-            background-color: #555 !important; /* Ubah warna merah menjadi abu-abu gelap */
+            background-color: #555 !important; 
             color: white !important;
         }
+
+        /* style untuk responsifnya */
+        @media screen and (max-width: 768px) {
+            .cv-container {
+                width: 95%;
+                padding: 15px;
+            }
         
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .profile-info {
+                text-align: center;
+            }
+        
+            .contact-form {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .header {
+                font-size: 18px;
+                padding: 10px;
+            }
+        
+            .profile img {
+                width: 100px;
+                height: 100px;
+            }
+        
+            .section-title {
+                font-size: 16px;
+                padding: 8px;
+            }
+        
+            .contact-form {
+                padding: 15px;
+            }
+        }
+
 
     </style>
 </head>
@@ -216,7 +263,7 @@
                 <p><strong>Email:</strong> Zbalqis34@gmail.com</p>
                 <p><strong>Alamat:</strong> Jln. Pattimura No.36</p>
                 <p><strong>Telpon:</strong> 085240499429</p>
-                <p><strong>Profil:</strong> Saya adalah mahasiswa Ilmu Komputer dengan ketertarikan dalam pengembangan web dan analisis data. Saya selalu antusias untuk belajar teknologi baru dan mengembangkan solusi inovatif.</p>
+                <p><strong>Profil:</strong> Saya adalah mahasiswa Ilmu Komputer dengan ketertarikan dalam pengembangan web dan analisis data. selalu antusias untuk belajar teknologi baru dan mengembangkan solusi inovatif.</p>
             </div>
         </div>
 
@@ -275,63 +322,62 @@
     </div>
 
     <div class="section">
-        <button onclick="downloadCV()">Unduh CV (PDF)</button>
+        <button onclick="downloadPDF()">Unduh CV (PDF)</button>
     </div>
 
     <div>
         <label for="darkModeToggle">Dark Mode</label>
         <input type="checkbox" id="darkModeToggle">
-        <div style="height: 80px;"></div> <!-- Menambah tinggi halaman -->
+        <div style="height: 80px;"></div> 
 
     </div>
 
     <script>
         
+        //script untuk contact formnya
         document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah form dari refresh halaman
+            event.preventDefault(); 
         
-            // Ambil nilai input
+            
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
             const formMessage = document.getElementById('formMessage');
         
-            // Validasi sederhana
+        
             if (name === '' || email === '' || message === '') {
                 formMessage.style.color = 'red';
                 formMessage.textContent = 'Harap isi semua kolom!';
                 return;
-            }
-
-            // Tampilkan pesan sukses
+            }   
             formMessage.style.color = 'green';
-            formMessage.textContent = 'Pesan berhasil dikirim!';
-        
-            // Reset formulir setelah pengiriman
+            formMessage.textContent = 'Pesan berhasil dikirim!';    
             document.getElementById('contactForm').reset();
         });
 
-        function downloadCV() {
-            const link = document.createElement('a');
-            link.href = 'path/to/your/cv.pdf'; // Ganti dengan path ke file PDF Anda
-            link.download = 'CV_Zakiatul_Balqis.pdf';
-            link.click();
-        }
+        //script untuk dowload pdfnya
+        function downloadPDF() {
+            const cvContent = document.querySelector('.cv-container'); // 
+            const contactForm = document.querySelector('.contact-form'); 
 
+            contactForm.style.display = "none";
+        
+            html2pdf().from(cvContent).set({
+                margin: [0, 3, 0, 3], // --> margin pdfnya 
+                filename: 'CV_Zakiatul_Balqis.pdf', // --> format nama filenya
+                image: { type: 'jpeg', quality: 2 }, 
+                html2canvas: { scale: 4, useCORS: true }, // --> kulaitas gambar di pdfnya
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } // --> format penulisan di pdfnya
+            }).save().then(() => {
+                
+                contactForm.style.display = "block";
+            });
+        }
+        //script dark modenya
         const darkModeToggle = document.getElementById('darkModeToggle');
         darkModeToggle.addEventListener('change', function() {
         document.body.classList.toggle('dark-mode');
-        });
-
-        function downloadCV() {
-        const link = document.createElement('a');
-        link.href = 'cv_zakiatul_balqis.pdf'; // Ganti dengan path yang benar
-        link.download = 'CV_Zakiatul_Balqis.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);  
-    }
-           
+        }); 
     </script>
     
 </body>
